@@ -9,13 +9,14 @@ class Aduans extends Model
     public $judul;
     public $isi;
     public $created_on;
+    public $filepath;
 
     public function initialize()
     {
         $this->setSource('Aduans');
 
         $this->belongsTo(
-            'admin_id',
+            'user_id',
             Users::class,
             'id',
             [

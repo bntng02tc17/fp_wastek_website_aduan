@@ -13,7 +13,7 @@
 
     <h2>Buat Aduan</h2>
 
-    <?php echo $this->tag->form("aduan/save"); ?>
+    <?php echo $this->tag->form(array("aduan/save",'enctype'=> "multipart/form-data")); ?>
 
         <p>
             <label for="judul">judul</label>
@@ -23,6 +23,11 @@
         <p>
             <label for="isi">isi</label>
             <?php echo $this->tag->textField("isi"); ?>
+        </p>
+
+        <p>
+            <label for="isi">gambar</label>
+            <?php echo $this->tag->fileField("gambar"); ?>
         </p>
 
         <p>

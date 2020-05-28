@@ -26,6 +26,7 @@
         if($auth['role'] == 'admin' || $auth['id'] == $aduan->a->user_id){
             echo $this->tag->linkTo(["aduan/edit/".$aduan->a->id, "Edit aduan", 'class' => 'btn btn-primary']);
             echo $this->tag->linkTo(["aduan/delete/".$aduan->a->id, "Hapus aduan", 'class' => 'btn btn-primary']);
+            echo $this->tag->linkTo(["aduan/view/".$aduan->a->id, "Detail aduan", 'class' => 'btn btn-primary']);
         }
     ?>
 <br>

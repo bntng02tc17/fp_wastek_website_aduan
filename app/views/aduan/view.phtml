@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Aduan</title>
+</head>
+<body>
+{{ content() }}
+
+
+<br>
+<?php echo $this->tag->linkTo(["home", "Home", 'class' => 'btn btn-primary']); ?>
+
+
+<br>
+
+    
+    {{aduan.judul}}<br>
+    {{aduan.isi}}<br>
+    {{aduan.created_on}}<br>
+    {{ 'PENULIS :' }}<br>
+    {{aduan.user.nama}}<br>
+    <label for="gambar">gambar</label>
+    <img id='gambar' src="<?php echo '/public/image/'.$aduan->filepath ?>" alt="gambar">
+<br>
+    
+</body>
+</html>
+
+
+
