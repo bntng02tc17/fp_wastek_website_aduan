@@ -87,6 +87,26 @@ class PengumumanController extends Controller
         $this->view->pengumuman = $pengumuman;
 
     }
+
+
+    public function detailAction($id)
+    {
+        $id = $id;
+        $pengumuman = Pengumumans::findFirst(
+            [
+                'conditions' => 'id = :id:',
+                'bind'       => [
+                    'id' => $id,
+                ],
+            ]
+        );
+        $this->view->pengumuman = $pengumuman;
+
+    }
+
+
+
+
     public function updateAction()
     {
         $judul = $this->request->getPost('judul');
@@ -131,6 +151,9 @@ class PengumumanController extends Controller
         }
 
     }
+    
+    
+    
     public function deleteAction($id)
     {
         $id = $id;

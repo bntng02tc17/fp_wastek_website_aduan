@@ -84,14 +84,15 @@ $container->set(
     }
 );
 
+
 $container->set(
     'db',
     function () {
         return new Mysql(
             [
-                'host'     => 'mysql',
+                'host'     => '127.0.0.1',
                 'username' => 'root',
-                'password' => 'password',
+                'password' => 'seratus',
                 'dbname'   => 'db',
             ]
         );
