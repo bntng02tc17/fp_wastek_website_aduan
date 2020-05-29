@@ -86,6 +86,13 @@ class AduanController extends Controller
         );
         $aduan->user_id = $auth['id'];
         $success = $aduan->save();
+        if ($this->request->hasFiles()) {
+            $baseLocation = BASE_PATH.'/public/image/';
+            $uploadedFile = $this->request->getUploadedFiles()[0];
+            $aduan->filepath = $aduan->id.'_'.$uploadedFile->getExtension();
+            $uploadedFile->moveTo($baseLocation . $aduan->filepath);
+            $success = $aduan->save();
+        }
 
         if ($success) {
             $this->flash->success("Aduan berhasil dibuat");
@@ -140,6 +147,13 @@ class AduanController extends Controller
         );
         $aduan->isi = $isi;
         $aduan->judul = $judul;
+
+        if ($this->request->hasFiles()) {
+            $baseLocation = BASE_PATH.'/public/image/';
+            $uploadedFile = $this->request->getUploadedFiles()[0];
+            $aduan->filepath = $aduan->id.'_'.$uploadedFile->getExtension();
+            $uploadedFile->moveTo($baseLocation . $aduan->filepath);
+        }
 
         $success = $aduan->save();
 
@@ -203,6 +217,22 @@ class AduanController extends Controller
                 ]
             );
         }
+    }
+
+    
+    public function viewAction($id)
+    {
+        $id = $id;
+        $aduan = Aduans::findFirst(
+            [
+                'conditions' => 'id = :id:',
+                'bind'       => [
+                    'id' => $id,
+                ],
+            ]
+        );
+
+        $this->view->aduan = $aduan;
 
     }
 }
