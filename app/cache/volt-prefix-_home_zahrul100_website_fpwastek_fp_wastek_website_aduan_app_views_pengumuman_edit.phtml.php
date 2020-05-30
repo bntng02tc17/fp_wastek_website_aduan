@@ -83,14 +83,14 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">Menu</li>
           <li class="">
-            <a href="../pengaduan/index.html">
+            <a href="/aduan">
               <i class="fa fa-exclamation-triangle"></i> <span>Pengaduan</span>
               <span class="pull-right-container">
               </span>
             </a>
           </li>
           <li class="active">
-            <a href="index.html">
+            <a href="/pengumuman">
               <i class="fa fa-bell"></i> <span>Pengumuman</span>
               <span class="pull-right-container">
               </span>

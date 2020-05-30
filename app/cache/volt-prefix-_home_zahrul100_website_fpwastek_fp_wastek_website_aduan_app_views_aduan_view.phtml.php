@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Pengaduan | Tambah</title>
+  <title>Pengumuman | Lihat</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="../../bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,12 +64,12 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="hidden-xs">{{auth['nama']}}</span>
+                <span class="hidden-xs">Administrator</span>
               </a>
               <ul class="dropdown-menu">
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                  <a href="/login/signout" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
                 </li>
               </ul>
             </li>
@@ -81,14 +83,14 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">Menu</li>
           <li class="active">
-            <a href="../pengaduan/index.html">
+            <a href="/aduan">
               <i class="fa fa-exclamation-triangle"></i> <span>Pengaduan</span>
               <span class="pull-right-container">
               </span>
             </a>
           </li>
           <li class="">
-            <a href="index.html">
+            <a href="/pengumuman">
               <i class="fa fa-bell"></i> <span>Pengumuman</span>
               <span class="pull-right-container">
               </span>
@@ -98,24 +100,20 @@
       </section>
     </aside>
 
-<<<<<<< HEAD
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
           Pengaduan
-          <small>Tambah</small>
+          <small>Lihat</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="">Pengaduan</li>
-          <li class="active">Tambah</li>
+          <li class="">Aduan</li>
+          <li class="active">Lihat</li>
         </ol>
       </section>
-=======
-    <?php echo $this->tag->form(array("aduan/save",'enctype'=> "multipart/form-data")); ?>
->>>>>>> 305ece1d73a25b09d075670837de112e0a0a4ada
 
       <!-- Main content -->
       <section class="content">
@@ -123,30 +121,24 @@
           <div class="col-xs-12">
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Tambah Pengaduan</h3>
+                <h3 class="box-title">Detail Aduan <span class="label label-primary"><?= $aduan->created_on ?></span></h3>
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <?php
-        echo $this->getContent();
-    ?>
-
-              <form role="form" method="post" action="/aduan/save">
+              <form role="form">
                 <div class="box-body">
                   <div class="form-group">
-                    <label for="">Judul Pengaduan</label><br>
-                    <input type="text" name="judul">
-                        <br>
-                    <label>Isi Pengaduan</label>
-                    <textarea name="isi" class="textarea" placeholder="Ketik di sini" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    <label for="exampleInputPassword1"><?= $aduan->judul ?></label>
+                   
+                    <div class="text-justify">
+                    <?= $aduan->isi ?>    
+                </div>
                   </div>
                 </div>
                 <!-- /.box-body -->
 
-<<<<<<< HEAD
                 <div class="box-footer">
-                  <a href="/aduan/index" type="submit" class="btn btn-warning">back</a>
-                  <input type="submit" class="btn btn-success">
+                  <a href="javascript:history.back()" type="submit" class="btn btn-warning">kembali</a>
                 </div>
               </form>
             </div>
@@ -154,16 +146,6 @@
         </div>
       </section>
       <!-- /.content -->
-=======
-        <p>
-            <label for="isi">gambar</label>
-            <?php echo $this->tag->fileField("gambar"); ?>
-        </p>
-
-        <p>
-            <?php echo $this->tag->submitButton("buat"); ?>
-        </p>
->>>>>>> 305ece1d73a25b09d075670837de112e0a0a4ada
 
     </div>
     <!-- /.content-wrapper -->
@@ -178,7 +160,7 @@
   <!-- ./wrapper -->
 
   <div class="script">
-    !-- jQuery 3 -->
+    <!-- jQuery 3 -->
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
@@ -211,24 +193,10 @@
     <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js"></script>
-    <!-- page script -->
-    <script>
-      $(function () {
-        $('.textarea').wysihtml5({
-            toolbar: {
-              "font-styles": true, // Font styling, e.g. h1, h2, etc.
-              "emphasis": true, // Italics, bold, etc.
-              "lists": true, // (Un)ordered lists, e.g. Bullets, Numbers.
-              "html": false, // Button which allows you to edit the generated HTML.
-              "link": true, // Button to insert a link.
-              "image": false, // Button to insert an image.
-              "color": false, // Button to change color of font
-              "blockquote": true, // Blockquote
-              "size": 'sm' // options are xs, sm, lg
-            }
-        });
-      })
-    </script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="../../dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
   </div>
 </body>
 </html>

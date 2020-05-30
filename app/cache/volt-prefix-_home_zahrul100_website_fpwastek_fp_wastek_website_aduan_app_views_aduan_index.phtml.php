@@ -69,7 +69,7 @@
               <ul class="dropdown-menu">
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="/login/signout" class="btn btn-default btn-flat">Sign out</a>
                 </li>
               </ul>
             </li>
@@ -83,14 +83,14 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">Menu</li>
           <li class="active">
-            <a href="pages/widgets.html">
+            <a href="/aduan">
               <i class="fa fa-exclamation-triangle"></i> <span>Pengaduan</span>
               <span class="pull-right-container">
               </span>
             </a>
           </li>
           <li class="">
-            <a href="../Pengumuman/index.html">
+            <a href="/pengumuman">
               <i class="fa fa-bell"></i> <span>Pengumuman</span>
               <span class="pull-right-container">
               </span>
@@ -181,7 +181,9 @@
                       </td>
 
                       <?php if ($auth['role'] == 'admin') { ?>
-                      <td><a href="/aduan/edit/<?= $aduan->a->id ?>" class="btn btn-xs btn-info"><i class="fa fa-eye"></i> Edit</a>
+                      <td>
+                      <a href="/aduan/view/<?= $aduan->a->id ?>" class="btn btn-xs btn-info"><i class="fa fa-eye"></i> Lihat</a>  
+                      <a href="/aduan/edit/<?= $aduan->a->id ?>" class="btn btn-xs btn-primary"><i class="fa fa-eye"></i> Edit</a>
                       <a href="show.html" class="btn btn-xs btn-danger"><i class="fa fa-eye"></i> Hapus</a>
                     </td>
                     <?php } ?>
