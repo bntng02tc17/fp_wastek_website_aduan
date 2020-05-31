@@ -64,12 +64,12 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="hidden-xs">Administrator</span>
+                <span class="hidden-xs"><?= $auth['nama'] ?></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="/login/signout" class="btn btn-default btn-flat">Sign out</a>
                 </li>
               </ul>
             </li>

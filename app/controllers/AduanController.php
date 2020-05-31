@@ -6,6 +6,12 @@ use Phalcon\Mvc\Model\Query;
 
 class AduanController extends Controller
 {
+
+    public function initialize(){
+
+        $this->view->auth = $this->session->get('auth');
+    }
+
     public function indexAction()
     {
         $auth = $this->session->get('auth');

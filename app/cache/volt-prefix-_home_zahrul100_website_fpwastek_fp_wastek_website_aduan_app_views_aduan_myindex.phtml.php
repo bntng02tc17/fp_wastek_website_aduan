@@ -69,7 +69,7 @@
               <ul class="dropdown-menu">
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="/login/signout" class="btn btn-default btn-flat">Sign out</a>
                 </li>
               </ul>
             </li>

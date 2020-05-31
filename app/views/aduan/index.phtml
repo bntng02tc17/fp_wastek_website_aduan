@@ -154,7 +154,7 @@
             <div class="box">
               <div class="box-header">
                 <h3 class="box-title">Tabel Pengaduan Belum Selesai</h3>
-                <a href="create" class="btn btn-sm btn-primary  pull-right"><i class="fa fa-plus"></i> Tambah</a>
+                <a href="/aduan/create" class="btn btn-sm btn-primary  pull-right"><i class="fa fa-plus"></i> Tambah</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">

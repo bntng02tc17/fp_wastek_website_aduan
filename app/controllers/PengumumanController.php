@@ -6,6 +6,13 @@ use Phalcon\Mvc\View;
 
 class PengumumanController extends Controller
 {
+
+
+    public function initialize(){
+
+        $this->view->auth = $this->session->get('auth');
+    }
+
     public function indexAction()
     {
         $pengumumans = Pengumumans::find();

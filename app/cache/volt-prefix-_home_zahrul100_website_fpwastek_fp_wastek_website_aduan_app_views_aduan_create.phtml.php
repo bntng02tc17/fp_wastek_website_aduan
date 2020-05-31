@@ -62,12 +62,12 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="hidden-xs">Administrator</span>
+                <span class="hidden-xs"><?= $auth['nama'] ?></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="/login/signout" class="btn btn-default btn-flat">Sign out</a>
                 </li>
               </ul>
             </li>
@@ -81,14 +81,14 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">Menu</li>
           <li class="active">
-            <a href="../pengaduan/index.html">
+            <a href="/aduan">
               <i class="fa fa-exclamation-triangle"></i> <span>Pengaduan</span>
               <span class="pull-right-container">
               </span>
             </a>
           </li>
           <li class="">
-            <a href="index.html">
+            <a href="/pengumuman">
               <i class="fa fa-bell"></i> <span>Pengumuman</span>
               <span class="pull-right-container">
               </span>
