@@ -123,11 +123,15 @@
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form role="form" method="post" action="/pengumuman/save">
+              <form role="form" method="post" action="/pengumuman/save" enctype="multipart/form-data">
                 <div class="box-body">
                   <div class="form-group">
                     <label>Judul</label> <br>
                     <input type="text" name="judul" class="">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Gambar</label>
+                    <input type="file" name="file" id=""><br>
                   </div>
                   <div class="form-group">
                     <label>Isi Pengumuman</label>

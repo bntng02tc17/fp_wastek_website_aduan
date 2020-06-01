@@ -9,6 +9,7 @@ class Pengumumans extends Model
     public $judul;
     public $isi;
     public $created_on;
+    public $filepath;
 
     public function initialize()
     {

@@ -95,7 +95,7 @@ class AduanController extends Controller
         if ($this->request->hasFiles()) {
             $baseLocation = BASE_PATH.'/public/image/';
             $uploadedFile = $this->request->getUploadedFiles()[0];
-            $aduan->filepath = $aduan->id.'_'.$uploadedFile->getExtension();
+            $aduan->filepath = 'aduan_'.$aduan->id.'.'.$uploadedFile->getExtension();
             $uploadedFile->moveTo($baseLocation . $aduan->filepath);
             $success = $aduan->save();
         }
@@ -157,7 +157,7 @@ class AduanController extends Controller
         if ($this->request->hasFiles()) {
             $baseLocation = BASE_PATH.'/public/image/';
             $uploadedFile = $this->request->getUploadedFiles()[0];
-            $aduan->filepath = $aduan->id.'_'.$uploadedFile->getExtension();
+            $aduan->filepath = 'aduan_'.$aduan->id.'.'.$uploadedFile->getExtension();
             $uploadedFile->moveTo($baseLocation . $aduan->filepath);
         }
 

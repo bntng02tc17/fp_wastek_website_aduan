@@ -133,11 +133,14 @@
         echo $this->getContent();
     ?>
 
-              <form role="form" method="post" action="/aduan/update">
+              <form role="form" method="post" action="/aduan/update" enctype="multipart/form-data">
                 <div class="box-body">
                   <div class="form-group">
                     <label for="">Judul Pengaduan</label><br>
                     <input type="text" name="judul" value="{{aduan.judul}}">
+                        <br>
+                    <label for="">Gambar</label>
+                    <input type="file" name="file" id=""><br>
                         <br>
 
             <?php echo $this->tag->hiddenField(["id", "value" => $aduan->id]); ?>

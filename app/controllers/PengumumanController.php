@@ -56,6 +56,13 @@ class PengumumanController extends Controller
         );
         $pengumuman->admin_id = $auth['id'];
         $success = $pengumuman->save();
+        if ($this->request->hasFiles()) {
+            $baseLocation = BASE_PATH.'/public/image/';
+            $uploadedFile = $this->request->getUploadedFiles()[0];
+            $pengumuman->filepath = 'pengumuman_'.$pengumuman->id.'.'.$uploadedFile->getExtension();
+            $uploadedFile->moveTo($baseLocation . $pengumuman->filepath);
+            $success = $pengumuman->save();
+        }
 
         if ($success) {
             $this->flash->success("Pengumuman berhasil dibuat");
@@ -70,6 +77,9 @@ class PengumumanController extends Controller
             $message = "Mohon maaf, ada permasalahan berikut :  "
                     . implode(', ', $pengumuman->getMessages());
             $this->flash->error($message);
+            
+            // var_dump($message);
+            // die();
 
             return $this->dispatcher->forward(
                 [
@@ -130,6 +140,14 @@ class PengumumanController extends Controller
         );
         $pengumuman->isi = $isi;
         $pengumuman->judul = $judul;
+
+
+        if ($this->request->hasFiles()) {
+            $baseLocation = BASE_PATH.'/public/image/';
+            $uploadedFile = $this->request->getUploadedFiles()[0];
+            $pengumuman->filepath = 'pengumuman_'.$pengumuman->id.'.'.$uploadedFile->getExtension();
+            $uploadedFile->moveTo($baseLocation . $pengumuman->filepath);
+        }
 
         $success = $pengumuman->save();
 
