@@ -31,33 +31,43 @@ class LoginController extends Controller
             ]
         );
 
-
-        if(null !== $user->no_ktp)
+        if($user)
         {
-            $this->session->set(
-                'auth',
-                [
-                    'id'   => $user->id,
-                    'nama' => $user->nama,
-                    'role' => $user->role,
-                    'no_ktp' => $user->no_ktp
-                ]
-            );
-
-            $this->flash->success(
-                'Welcome ' . $user->nama
-            );
-
-            return $this->dispatcher->forward(
-                [
-                    'controller' => 'home',
-                    'action'     => 'index',
-                ]
-            );
+            if(null !== $user->no_ktp)
+            {
+                $this->session->set(
+                    'auth',
+                    [
+                        'id'   => $user->id,
+                        'nama' => $user->nama,
+                        'role' => $user->role,
+                        'no_ktp' => $user->no_ktp
+                    ]
+                );
+    
+                // $this->flash->success(
+                //     'Welcome ' . $user->nama
+                // );
+    
+                // return $this->dispatcher->forward(
+                //     [
+                //         'controller' => 'aduan',
+                //         'action'     => 'myindex',
+                //     ]
+                // );
+                if($user->role=="admin")
+                {
+                    $this->response->redirect('aduan/index');
+                }
+                else
+                {
+                    $this->response->redirect('aduan/myindex');
+                }
+    
+            }
 
         }
-        else
-        {
+        else{
             $this->flash->error(
                 'Nomor KTP / PASSWORD salah.'
             );
@@ -69,7 +79,6 @@ class LoginController extends Controller
                 ]
             );
         }
-        //$this->view->disable();
     }
 
     public function signoutAction()

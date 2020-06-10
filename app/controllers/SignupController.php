@@ -22,15 +22,14 @@ class SignupController extends Controller
 
         $user = Users::findFirst(
             [
-                'conditions' => 'no_ktp = :no_ktp: AND password = :password:',
+                'conditions' => 'no_ktp = :no_ktp:',
                 'bind'       => [
                     'no_ktp' => $no_ktp,
-                    'password' => $password
                 ],
             ]
         );
 
-        if(null !== $user->no_ktp)
+        if($user && null !== $user->no_ktp)
         {
             $this->flash->error(
                 'Nomor KTP sudah pernah digunakan. Silakan gunakan nomor KTP yang lain.'
@@ -55,6 +54,7 @@ class SignupController extends Controller
                     'password'
                 ]
                 );
+            $user->role = 'admin';
 
             $success = $user->save();
 
